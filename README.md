@@ -3,6 +3,8 @@ This kanban board can be used to save and organization yours tasks. The engine t
 
 [Live version](https://goldyga.github.io/miniapp-Kanban-Board-API/)
 
+![alt text](https://github.com/Goldyga/miniapp-Kanban-Board-API/blob/master/kanban.jpg?raw=true)
+
 ## Instruction
 * Create a new column.
 * Create a new card wit your task.
