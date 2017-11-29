@@ -7,7 +7,7 @@ This kanban board can be used to save and organization yours tasks. The engine t
 
 ## Instruction
 * Create a new column.
-* Create a new card wit your task.
+* Create a new card with your task.
 * You can move cards to between columns.
 * The data is automatically saved on the server at each change.
 ---
