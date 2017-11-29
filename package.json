@@ -1,0 +1,30 @@
+﻿{
+  "name": "",
+  "version": "1.0.0",
+  "description": "P",
+  "main": "index.js",
+  "scripts": {
+    "test": "gp"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "grunt"
+  ],
+  "author": "Marcin Gołdyga",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "devDependencies": {
+    "grunt": "^1.0.0",
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-concurrent": "^2.3.1",
+    "grunt-contrib-imagemin": "^2.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-sass": "^2.0.0"
+  }
+}

@@ -1,0 +1,118 @@
+@import '_mixins';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
+
+* {
+   box-sizing: border-box;
+   font-family: 'Open Sans', sans-serif;
+}
+body {
+  margin: 0 auto;
+  background-color: #000000;
+}
+
+.board {
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  h1 {
+    color: white;
+  }
+  .create-column {
+    width: 150px;
+    height: 50px;
+    background-color: #22bee5;
+    border: none;
+    @include border-radius(5px);
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(34, 190, 229, 0.8);
+    }
+  }
+  .btn-delete {
+    @include position(absolute, $top: 10px, $right: 20px);
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    background-color: red;
+    border: none;
+    @include border-radius(5px);
+    text-align: center;
+    font-size: 20px;
+    font-weight: bolder;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+
+    &:hover {
+      background-color: rgba(255, 0, 0, 0.8);
+    }
+  }
+  .column-add-card {
+    @extend .btn-delete;
+    left: 10px;
+    width: 120px;
+    background-color: #10b52b;
+
+    &:hover {
+      background-color: rgba(16, 181, 43, 0.8);
+    }
+  }
+  .column-container {
+    margin-top: 100px;
+    @include display-flex();
+    @include justify-content(center);
+    @include align-content(center);
+    flex-wrap: wrap;
+
+    .column {
+      width: 385px;
+      height: auto;
+      margin: 5px;
+      border: 1px solid white;
+      @include border-radius(30px);
+      background-color: gray;
+      float: left;
+      position: relative;
+
+      h2 {
+        padding-top: 80px;
+        padding-bottom: 50px;
+        margin: 0;
+      }
+
+      .card-list {
+        min-height: 400px;
+        @include border-radius(30px);
+        margin: 0;
+        padding: 0;
+        background-color: inherit;
+        list-style-type: none;
+      }
+      .card {
+        position: relative;
+        min-height: 50px;
+        margin-bottom: 20px;
+        word-wrap: break-word;
+        border: 1px solid black;
+        @include border-radius(30px);
+        background-color: inherit;
+
+        p {
+          padding: 30px 10px;
+          text-align: left;
+          color: #FFFFFF;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,59 @@
+$primary-color: #FFFFFF;
+$primary-fonts: 'Open Sans', sans-serif;
+
+/*MIXINS*/
+@mixin display-flex() {
+	display: -webkit-flex;
+	-moz-flex: flex;
+	-ms-flex: flex;
+    display: flex;
+}
+@mixin justify-content($just) {
+	-webkit-justify-content: $just;
+	-moz-justify-content: $just;
+	-ms-justify-content: $just;
+    justify-content: $just;
+}
+@mixin align-content($alig) {
+	-webkit-align-content: $alig;
+	-moz-align-content: $alig;
+	-ms-align-content: $alig;
+    align-content: $alig;
+}
+@mixin flex-derection($direct) {
+	-webkit-flex-direction: $direct;
+	-moz-flex-direction: $direct;
+	-ms-flex-direction: $direct;
+    flex-direction: $direct; 
+}
+@mixin position($position, $top: null, $right: null, $bottom: null, $left: null) {
+	position: $position;
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+}
+@mixin transition($sec) {
+	-webkit-transition: $sec;
+	-moz-transition: $sec;
+	-ms-transition: $sec;
+	transition: $sec;
+}
+@mixin transform($type, $value) {
+	-webkit-transform: #{$type}("(#{$value})");
+	-moz-transform: #{$type}("(#{$value})");
+	-ms-transform: #{$type}("(#{$value})");
+	transform: #{$type}("(#{$value})");
+}
+@mixin animation($nameKeyf, $timeVal, $repeat) {
+	-webkit-animation: $nameKeyf $timeVal  $repeat;
+	-moz-animation: $nameKeyf $timeVal  $repeat;
+	-ms-animation: $nameKeyf $timeVal  $repeat;
+    animation: $nameKeyf $timeVal  $repeat;
+}
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius;
+}
