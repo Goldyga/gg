@@ -1,3 +1,20 @@
+function addAlertCreateCard() {
+    var pageWindow = $('#window');
+    var alerArea = $('<div id="alert" class="alert"></div>');
+    var textAlertPart1 = $('<h1>Card Name</h1>');
+    var textAlertPart2 = $('<p>Enter card name</p>');
+    var inputAlert = $('<input id="inputName" type="text"></input>');
+    var buttonAlertCan = $('<button id="cancelBtn" class="cancel-btn">Cancel</button>');
+    var buttonAlertOk = $('<button id="okBtn">OK</button>');
+
+    alerArea.appendTo(pageWindow);
+    textAlertPart1.appendTo(alerArea);
+    textAlertPart2.appendTo(alerArea);
+    inputAlert.appendTo(alerArea);
+    buttonAlertCan.appendTo(alerArea);
+    buttonAlertOk.appendTo(alerArea);
+}
+
 function Column(id, name) {
 	var self = this;
 	
@@ -6,36 +23,40 @@ function Column(id, name) {
 	this.element = createColumn();
 
 	function createColumn() {
-		// TWORZENIE NOWYCH WĘZŁÓW
 		var column = $('<div class="column"></div>');
 		var columnTitle = $('<h2 class="column-title">' + self.name + '</h2>');
 		var columnCardList = $('<ul class="card-list"></ul>');
 		var columnDelete = $('<button class="btn-delete">x</button>');
-		var columnAddCard = $('<button class="column-add-card">Dodaj kartę</button>');
+		var columnAddCard = $('<button class="column-add-card">Add card</button>');
 		
-		// PODPINANIE ODPOWIEDNICH ZDARZEŃ POD WĘZŁY
 		columnDelete.click(function() {
 			self.deleteColumn();
 		});
 		
 		columnAddCard.click(function(event) {
-			var cardName = prompt("Enter the name of the card");
-			event.preventDefault();
-			$.ajax({
-			    url: baseUrl + '/card',
-			    method: 'POST',
-			    data: {
-			    	name: cardName,
-			    	bootcamp_kanban_column_id: self.id
-    			},
-	    		success: function(response) {
-	        		var card = new Card(response.id, cardName);
-	        		self.createCard(card);
-	    		}
+			addAlertCreateCard();
+			$('#okBtn').click(function() {
+				var cardName = $('#inputName');
+				event.preventDefault();
+				$.ajax({
+				    url: baseUrl + '/card',
+				    method: 'POST',
+				    data: {
+				    	name: cardName.val(),
+				    	bootcamp_kanban_column_id: self.id
+	    			},
+		    		success: function(response) {
+		        		var card = new Card(response.id, cardName.val());
+		        		self.createCard(card);
+		        		$('#alert').remove();
+		    		}
+				});
 			});
+			$('#cancelBtn').click(function() {
+      			$('#alert').remove();
+    		});
 		});
 			
-			// KONSTRUOWANIE ELEMENTU KOLUMNY
 		column.append(columnTitle)
 			.append(columnDelete)
 			.append(columnAddCard)
